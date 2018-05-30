@@ -3,19 +3,17 @@ import machine
 import utime
 import ubinascii
 
+from config import SERVER, COMMAND_TOPIC, STATE_TOPIC, AVAILABILITY_TOPIC
+
 LED = machine.Pin(2, machine.Pin.OUT, value=0)
 
 CLIENT = None
-SERVER = "192.168.1.9"
 CLIENT_ID = ubinascii.hexlify(machine.unique_id())
-COMMAND_TOPIC = "home/office/switch1/set"
-STATE_TOPIC = "home/office/switch1"
-AVAILABILITY_TOPIC = "home/office/switch1/available"
 
 
 def new_msg(topic, msg):
 
-    print(msg)
+    print("Received {}".format(msg))
 
     if msg == b"on":
         LED.value(0)
@@ -36,7 +34,7 @@ def main():
     # Publish as available once connected
     CLIENT.publish(AVAILABILITY_TOPIC, "online")
 
-    print("Connected to %s, subscribed to %s topic" % (SERVER, COMMAND_TOPIC))
+    print("Connected to {}, subscribed to {} topic".format(SERVER, COMMAND_TOPIC))
 
     try:
         while 1:

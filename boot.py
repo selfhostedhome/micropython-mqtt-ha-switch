@@ -4,21 +4,20 @@
 import gc
 import webrepl
 import network
+from config import ESSID, PASSWORD
 
 webrepl.start()
 gc.collect()
 
-ESSID = "<ESSID>"
-PASSWORD = "<PASSWORD>"
 
 def connect():
     sta_if = network.WLAN(network.STA_IF)
     if not sta_if.isconnected():
-        print('connecting to network...')
+        print('Connecting to network...')
         sta_if.active(True)
         sta_if.connect(ESSID, PASSWORD)
         while not sta_if.isconnected():
             pass
-    print('network config:', sta_if.ifconfig())
+    print('Network config:', sta_if.ifconfig())
 
 connect()
