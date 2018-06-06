@@ -5,7 +5,7 @@ import ubinascii
 
 from config import SERVER, COMMAND_TOPIC, STATE_TOPIC, AVAILABILITY_TOPIC
 
-LED = machine.Pin(2, machine.Pin.OUT, value=0)
+LED = machine.Pin(2, machine.Pin.OUT, value=1)
 
 CLIENT = None
 CLIENT_ID = ubinascii.hexlify(machine.unique_id())
