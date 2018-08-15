@@ -3,4 +3,4 @@
 Quick demo of using an ESP8266 with Home Assistant as a switch
 communicating over MQTT. Developed using MicroPython.
 
-Read the full blog post [here](http://selfhostedhome.com/micropython-home-assistant-switch-on-esp8266/).
+Read the full blog post [here](https://selfhostedhome.com/creating-a-diy-home-assistant-switch-using-micropython/).
